@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8097403019310822524}
   - component: {fileID: 2562267131214781669}
   - component: {fileID: 3368655816544892050}
+  - component: {fileID: 5473823381219364331}
   m_Layer: 0
   m_Name: Block
   m_TagString: Ground
@@ -126,3 +127,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5473823381219364331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035840369560524355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb84d207d679a7489e7823d77e8e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 10
