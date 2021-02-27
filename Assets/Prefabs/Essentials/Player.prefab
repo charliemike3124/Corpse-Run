@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8685464546496405637}
   - component: {fileID: 8685464546496405636}
   - component: {fileID: 358116776}
+  - component: {fileID: 358116777}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -46,7 +47,7 @@ BoxCollider:
   m_GameObject: {fileID: 8685464546496405632}
   m_Material: {fileID: 13400000, guid: 6eb30bcd63e2d2942b9e4346bca164c4, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -115,6 +116,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDeathEffect: {fileID: 3503261929015527476, guid: fee7f9976dec1cb4a92ec910a6b9c53f, type: 3}
+  yPosDeath: -6
+--- !u!136 &358116777
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685464546496405632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.125
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8685464547127481463
 GameObject:
   m_ObjectHideFlags: 0
