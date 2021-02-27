@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody RB;
     private GroundDetector GD;
     private Animator anim;
+    public List<Tween> tweens = new List<Tween>();
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         else 
         { 
             anim.SetBool("Walking", false);
-            mesh.DORotate(new Vector3(0, mesh.eulerAngles.y, 0), 0.2f);
+            tweens.Add(mesh.DORotate(new Vector3(0, mesh.eulerAngles.y, 0), 0.2f));
         }
     }
 
@@ -59,11 +60,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("Walking", true);
         if(speed > 0)
         {
-            mesh.DORotate(new Vector3(0, 0, 10), 0.2f);
+            tweens.Add(mesh.DORotate(new Vector3(0, 0, 10), 0.2f));
         }
         else
         {
-            mesh.DORotate(new Vector3(0, 180, 10), 0.2f);
+            tweens.Add(mesh.DORotate(new Vector3(0, 180, 10), 0.2f));
         }
     
     }
