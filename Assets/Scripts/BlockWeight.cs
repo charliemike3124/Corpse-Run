@@ -29,7 +29,7 @@ public class BlockWeight : MonoBehaviour
             if (WeightValue >= killTreshold && 
                 RB.velocity.magnitude > player.GetComponent<Rigidbody>().velocity.magnitude)
             { 
-                player.die();
+                StartCoroutine(player.die());
             }
         }
     }
