@@ -162,9 +162,23 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: SpawnWalkingEffect
+        data: 
+        objectReferenceParameter: {fileID: 6979931399177766684, guid: aeca9b6e372524e40aba8cd5c22fb1f9, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: PlaySound
         data: Step
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.26666665
+        functionName: SpawnWalkingEffect
+        data: 
+        objectReferenceParameter: {fileID: 6979931399177766684, guid: aeca9b6e372524e40aba8cd5c22fb1f9, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -172,6 +186,13 @@ ModelImporter:
         functionName: PlaySound
         data: Step
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5333333
+        functionName: SpawnWalkingEffect
+        data: 
+        objectReferenceParameter: {fileID: 6979931399177766684, guid: aeca9b6e372524e40aba8cd5c22fb1f9, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -186,6 +207,13 @@ ModelImporter:
         functionName: PlaySound
         data: Step
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7809524
+        functionName: SpawnWalkingEffect
+        data: 
+        objectReferenceParameter: {fileID: 6979931399177766684, guid: aeca9b6e372524e40aba8cd5c22fb1f9, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

@@ -860,7 +860,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668113690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd5d87ef99170045a507fb6a4898008, type: 3}
   m_Name: 
@@ -942,6 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GD: {fileID: 1455347498}
+  walkingSpawningPoint: {fileID: 8685464546819869987}
 --- !u!1 &2107387262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,3 +1109,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afc66bc0bca678d43aea4d1264529313, type: 3}
+--- !u!4 &8685464546819869987 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8529969810120132119, guid: afc66bc0bca678d43aea4d1264529313, type: 3}
+  m_PrefabInstance: {fileID: 8685464546819869986}
+  m_PrefabAsset: {fileID: 0}
