@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     public bool jump = false;
     public bool dash = false;
     public bool escape = false;
+    public bool interact = false;
+    public bool toggleHold = false;
 
     void Update()
     {
@@ -22,6 +24,8 @@ public class InputManager : MonoBehaviour
         jump = Input.GetKeyDown(KeyCode.Space) ? true : false;
         dash = Input.GetKeyDown(KeyCode.LeftShift) ? true : false;
         escape = Input.GetKeyDown(KeyCode.Escape) ? true : false;
+        interact = Input.GetKeyDown(KeyCode.E) ? true : false;
+        toggleHold = Input.GetKeyDown(KeyCode.R) ? true : false;
 
     }
 }

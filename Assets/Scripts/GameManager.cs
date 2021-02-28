@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject playerPrefab;
     [HideInInspector] public PlayerManager player;
+
+    [Header("Tutorial Prompts")]
+    public bool interaction;
+    public bool toggle;
+    public bool dash;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerManager>();

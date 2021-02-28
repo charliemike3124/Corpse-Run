@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 {
 
     [Header("Death")]
+    public string INTERACTABLE_TAG = "Interactable";
     public GameObject onDeathEffect;
     public float restartTime;
     public float yPosDeath;
@@ -25,22 +26,14 @@ public class PlayerManager : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
-            Instantiate(onDeathEffect, transform.position, onDeathEffect.transform.rotation);
+            transform.tag = INTERACTABLE_TAG;
             if (leaveCorpse)
             {
                 foreach (Tween t in GetComponent<PlayerMovement>().tweens)
                 {
                     t.Pause();
                 }
-
-                Camera.main.GetComponent<CameraController>().cameraTarget = null;
-                var scripts = gameObject.GetComponents<MonoBehaviour>().ToList();
-                var scriptsChildren = gameObject.GetComponentsInChildren<MonoBehaviour>().ToList();
-                scripts.AddRange(scriptsChildren);
-                foreach (var script in scripts)
-                {
-                    script.enabled = false;
-                }
+                enableScriptsAndComponents(false);
 
                 yield return new WaitForEndOfFrame();
                 Rigidbody rb = GetComponent<Rigidbody>();
@@ -51,13 +44,6 @@ public class PlayerManager : MonoBehaviour
             yield return new WaitForSeconds(restartTime);
             GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             GameManager.Instance.player = newPlayer.GetComponent<PlayerManager>();
-            var scriptsNew = newPlayer.GetComponents<MonoBehaviour>().ToList();
-            var scriptsChildrenNew = newPlayer.GetComponentsInChildren<MonoBehaviour>().ToList();
-            scriptsNew.AddRange(scriptsChildrenNew);
-            foreach (var script in scriptsNew)
-            {
-                script.enabled = true;
-            }
             newPlayer.GetComponent<Rigidbody>().constraints
                 = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
             Camera.main.GetComponent<CameraController>().cameraTarget = newPlayer.transform;
@@ -76,6 +62,7 @@ public class PlayerManager : MonoBehaviour
             if (transform.position.y <= yPosDeath)
             {
                 condition = true;
+                Instantiate(onDeathEffect, transform.position, onDeathEffect.transform.rotation);
             }
         }
         return condition;
@@ -86,7 +73,24 @@ public class PlayerManager : MonoBehaviour
         if(c.tag == "Enemy")
         {
             StartCoroutine(die(true));
+            Instantiate(onDeathEffect, transform.position, onDeathEffect.transform.rotation);
+            if (c.gameObject.layer == 9)
+            {
+                Destroy(c.gameObject);
+            }
         }
     }
 
+    void enableScriptsAndComponents(bool value)
+    {
+        if(!value) Camera.main.GetComponent<CameraController>().cameraTarget = null;
+        GetComponentInChildren<Animator>().enabled = value;
+        var scripts = gameObject.GetComponents<MonoBehaviour>().ToList();
+        var scriptsChildren = gameObject.GetComponentsInChildren<MonoBehaviour>().ToList();
+        scripts.AddRange(scriptsChildren);
+        foreach (var script in scripts)
+        {
+            script.enabled = value;
+        }
+    }
 }

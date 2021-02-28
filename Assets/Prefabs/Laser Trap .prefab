@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerType: 1
   trigger: {fileID: 915217480}
-  triggerTimes: 1
+  triggerTimes: 100
 --- !u!1 &7302559615352267309
 GameObject:
   m_ObjectHideFlags: 0
