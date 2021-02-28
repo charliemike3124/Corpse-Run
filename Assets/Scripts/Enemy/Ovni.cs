@@ -11,23 +11,17 @@ public class Ovni : Enemy {
     [SerializeField] private float _rotationAnimSmoothness = 0.5f;
     private float _yRot = 0;
     private Vector3 _actualRot = new Vector3 (0, 360, 0);
-    // Start is called before the first frame update
+
     void Start () {
         DOTween.Init ();
         _currentTargetPos = _startPos;
         _parentTransform = this.transform.parent.transform;
     }
 
-    // Update is called once per frame
     void Update () {
-        RotateAnim ();
         Move ();
         if (_canAttack)
             StartCoroutine (Attack ());
-    }
-
-    private void RotateAnim () {
-        _meshTransform.DOLocalRotate (_actualRot, _rotationAnimSmoothness).SetLoops (-1, LoopType.Incremental).SetEase(Ease.Linear);
     }
 
     public override void Move () {
