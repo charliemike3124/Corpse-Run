@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening; 
 
-public class Tank : Enemy {
+public class Land : Enemy {
     [Header ("characteristic")]
     [SerializeField] private float _triggerDistanceFromPlayer;
     [SerializeField] private float _rotationAnimSmoothness = 0.5f; 

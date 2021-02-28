@@ -15,7 +15,7 @@ public abstract class Enemy : MonoBehaviour {
 
     [Space (5)]
 
-    [Header ("Characteristics")]
+    [Header ("Stats")]
     [SerializeField] private float _bulletVel = 3.0f;
     [SerializeField] private float _health = 1.0f;
     [SerializeField] private float _fireRate = 0.5f;
@@ -28,19 +28,7 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected Transform _targetPlayer;
     [SerializeField] protected GameObject _bullet;
 
-    protected  void Move (){
-         float delta = _moveVelocity * Time.deltaTime; 
-        _parentTransform.position = Vector3.MoveTowards(_parentTransform.position, _currentTargetPos.position, delta); 
-        if(Vector3.Distance(_parentTransform.position, _currentTargetPos.position) < 0.001f){
-            //change target
-            if(_currentTargetPos == _startPos){
-                _currentTargetPos = _endPos; 
-                return; 
-            }
-
-            _currentTargetPos = _startPos; 
-        }
-    }
+    public abstract void Move(); 
 
     protected IEnumerator Attack () {
         _canAttack = false; 
