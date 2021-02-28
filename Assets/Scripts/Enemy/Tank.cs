@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening; 
 
 public class Land : Enemy {
     [Header ("characteristic")]
     [SerializeField] private float _triggerDistanceFromPlayer;
-    [SerializeField] private float _rotationAnimSmoothness = 0.5f; 
     private Vector3 noRot = new Vector3 (0, 0, 0);
     private Vector3 yesRot = new Vector3 (0, 180, 0);
+    
+    [Header("Animation Parameters")]
+    [SerializeField] private float _rotationAnimSmoothness = 0.5f; 
     // Start is called before the first frame update
     void Start () {
         DOTween.Init(); 
