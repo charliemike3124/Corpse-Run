@@ -15,6 +15,8 @@ public class Ovni : Enemy
     void Update()
     {
         Move(); 
+        if(_canAttack)
+            StartCoroutine(AttackCounter()); 
     }
 
     public override void Move(){
@@ -33,12 +35,15 @@ public class Ovni : Enemy
 
     public override void Attack()
     {
-
+        GameObject m_bullet = Instantiate(_bullet, _weaponPos.position, _weaponPos.rotation);
+        m_bullet.transform.GetComponent<Rigidbody>().velocity = m_bullet.transform.right * _bulletVel;
     }
 
     public override IEnumerator AttackCounter()
     {   
-        Attack(); 
+        Attack();
+        _canAttack = false; 
         yield return new WaitForSeconds(_fireRate); 
+        _canAttack = true; 
     }
 }

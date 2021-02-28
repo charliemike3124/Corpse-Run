@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Transform _endPos; 
     [SerializeField] protected Transform _weaponPos; 
     protected bool _canMove = true; 
+    protected bool _canAttack = true; 
     protected Transform _currentTargetPos; 
     protected Transform _parentTransform; 
 
@@ -20,6 +21,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _damage = 1.0f; 
     [SerializeField] protected float _fireRate = 0.5f; 
     [SerializeField] protected float _health = 1.0f; 
+    [SerializeField] protected Vector3 _bulletDir; 
+    [SerializeField] protected float _bulletVel = 3.0f; 
 
     [Space(5)]
 
