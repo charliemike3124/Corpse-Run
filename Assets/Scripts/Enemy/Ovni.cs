@@ -16,11 +16,11 @@ public class Ovni : Enemy
     {
         Move(); 
         if(_canAttack)
-            StartCoroutine(AttackCounter()); 
+            StartCoroutine(Attack()); 
     }
 
     public override void Move(){
-        float delta = _velocity * Time.deltaTime; 
+        float delta = _moveVelocity * Time.deltaTime; 
         _parentTransform.position = Vector3.MoveTowards(_parentTransform.position, _currentTargetPos.position, delta); 
         if(Vector3.Distance(_parentTransform.position, _currentTargetPos.position) < 0.001f){
             //change target
@@ -33,17 +33,4 @@ public class Ovni : Enemy
         }
     }
 
-    public override void Attack()
-    {
-        GameObject m_bullet = Instantiate(_bullet, _weaponPos.position, _weaponPos.rotation);
-        m_bullet.transform.GetComponent<Rigidbody>().velocity = m_bullet.transform.right * _bulletVel;
-    }
-
-    public override IEnumerator AttackCounter()
-    {   
-        Attack();
-        _canAttack = false; 
-        yield return new WaitForSeconds(_fireRate); 
-        _canAttack = true; 
-    }
 }
