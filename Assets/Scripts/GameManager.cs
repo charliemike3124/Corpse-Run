@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening; 
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +14,9 @@ public class GameManager : MonoBehaviour
     public bool toggle;
     public bool dash;
 
+    [Header("UI Elements")]
+    public GameObject _finishAlert; 
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerManager>();
@@ -24,6 +26,13 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    public void EndGame(){
+        GameObject m_finishAlert = Instantiate(_finishAlert, new Vector3(0,250,0), Quaternion.identity) as GameObject;
+        m_finishAlert.transform.SetParent (GameObject.Find ("Canvas").transform, false);
+        m_finishAlert.transform.localPosition = new Vector3 (0, 250, 0);
+        m_finishAlert.transform.DOLocalMove(new Vector3(0,0,0), 1.0f); 
     }
 
     private void Update()
