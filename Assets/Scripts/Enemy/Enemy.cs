@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour {
 
     [Header ("Components")]
+    [SerializeField] private Transform _weaponPos;
     [SerializeField] protected Transform _startPos;
     [SerializeField] protected Transform _endPos;
-    [SerializeField] protected Transform _weaponPos;
     protected bool _canMove = true;
     protected bool _canAttack = true;
     protected Transform _currentTargetPos;
@@ -15,20 +15,20 @@ public abstract class Enemy : MonoBehaviour {
 
     [Space (5)]
 
-    [Header ("Characteristics")]
+    [Header ("Stats")]
+    [SerializeField] private float _bulletVel = 3.0f;
     [SerializeField] private float _health = 1.0f;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] protected float _moveVelocity = 10.0f;
     [SerializeField] protected float _damage = 1.0f;
-    [SerializeField] protected float _bulletVel = 3.0f;
 
     [Space (5)]
 
     [Header ("Dependencies")]
-    [SerializeField] protected Transform _target;
+    [SerializeField] protected Transform _targetPlayer;
     [SerializeField] protected GameObject _bullet;
 
-    public abstract void Move ();
+    public abstract void Move(); 
 
     protected IEnumerator Attack () {
         _canAttack = false; 
