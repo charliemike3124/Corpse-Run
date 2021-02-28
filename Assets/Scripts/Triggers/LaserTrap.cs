@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class LaserTrap : TriggerEvent
 {
@@ -13,6 +14,13 @@ public class LaserTrap : TriggerEvent
     {
         GameObject _bullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
         _bullet.transform.GetComponent<Rigidbody>().velocity = _bullet.transform.right * bulletVelocity;
+        triggeredObject.transform.DOLocalMoveY(-0.05f, 0.1f).OnComplete(()=> {
+            if(triggeredObject.GetComponent<Trigger>().triggerTimes > 0)
+            {
+                triggeredObject.transform.DOLocalMoveY(0, 0.1f);
+            }
+        });
+        AudioManager.Instance.play("Trigger Trap");
     }
 
 

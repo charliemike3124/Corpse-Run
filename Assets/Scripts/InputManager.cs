@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     public bool up = false;
     public bool jump = false;
     public bool dash = false;
+    public bool escape = false;
 
     void Update()
     {
@@ -20,6 +21,7 @@ public class InputManager : MonoBehaviour
 
         jump = Input.GetKeyDown(KeyCode.Space) ? true : false;
         dash = Input.GetKeyDown(KeyCode.LeftShift) ? true : false;
+        escape = Input.GetKeyDown(KeyCode.Escape) ? true : false;
 
     }
 }

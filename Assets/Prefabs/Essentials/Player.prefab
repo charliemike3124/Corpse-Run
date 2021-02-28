@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb658751d347b948bc70072c5719a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 8685464546496405632}
   onDeathEffect: {fileID: 3503261929015527476, guid: fee7f9976dec1cb4a92ec910a6b9c53f, type: 3}
   restartTime: 1.5
   yPosDeath: -6
@@ -192,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  noFrictionMat: {fileID: 13400000, guid: 6286d6c2159440b4587f5eb3e6898ddd, type: 2}
 --- !u!1001 &3643430120928683197
 PrefabInstance:
   m_ObjectHideFlags: 0

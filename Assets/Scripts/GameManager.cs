@@ -7,14 +7,25 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+    public GameObject playerPrefab;
+    [HideInInspector] public PlayerManager player;
     private void Awake()
     {
+        player = FindObjectOfType<PlayerManager>();
         if (Instance != null)
         {
             Debug.LogWarning("more than one instance of GameManager found.");
             return;
         }
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if (player.GetComponent<InputManager>().escape)
+        {
+            LoadActiveScene();
+        }
     }
 
     public void RestartSceneAfterSeconds(float time)

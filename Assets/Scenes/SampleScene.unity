@@ -364,6 +364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 915217478, guid: c287494e15cf3c74e9e2798c87b5e221, type: 3}
+      propertyPath: triggerTimes
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7302559615352267308, guid: c287494e15cf3c74e9e2798c87b5e221, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.2
@@ -776,6 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b819c4f6254447f4ea7ca692ced1c8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 8685464546496405632, guid: afc66bc0bca678d43aea4d1264529313, type: 3}
 --- !u!4 &1668113692
 Transform:
   m_ObjectHideFlags: 0
@@ -811,6 +816,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: c661684befbd6b343967535a1653c6f2, type: 3}
     name: Step
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c5001d88c3897a540a40ffcc28b9b27d, type: 3}
+    name: Trigger Trap
     volume: 0.3
     pitch: 1
     loop: 0
@@ -1025,9 +1036,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8685464547127481461, guid: afc66bc0bca678d43aea4d1264529313, type: 3}
-      propertyPath: noFrictionMat
-      value: 
-      objectReference: {fileID: 13400000, guid: 6286d6c2159440b4587f5eb3e6898ddd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afc66bc0bca678d43aea4d1264529313, type: 3}
