@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour {
 
     [Header ("Components")]
+    [SerializeField] private Transform _weaponPos;
     [SerializeField] protected Transform _startPos;
     [SerializeField] protected Transform _endPos;
-    [SerializeField] protected Transform _weaponPos;
     protected bool _canMove = true;
     protected bool _canAttack = true;
     protected Transform _currentTargetPos;
@@ -16,19 +16,31 @@ public abstract class Enemy : MonoBehaviour {
     [Space (5)]
 
     [Header ("Characteristics")]
+    [SerializeField] private float _bulletVel = 3.0f;
     [SerializeField] private float _health = 1.0f;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] protected float _moveVelocity = 10.0f;
     [SerializeField] protected float _damage = 1.0f;
-    [SerializeField] protected float _bulletVel = 3.0f;
 
     [Space (5)]
 
     [Header ("Dependencies")]
-    [SerializeField] protected Transform _target;
+    [SerializeField] protected Transform _targetPlayer;
     [SerializeField] protected GameObject _bullet;
 
-    public abstract void Move ();
+    protected  void Move (){
+         float delta = _moveVelocity * Time.deltaTime; 
+        _parentTransform.position = Vector3.MoveTowards(_parentTransform.position, _currentTargetPos.position, delta); 
+        if(Vector3.Distance(_parentTransform.position, _currentTargetPos.position) < 0.001f){
+            //change target
+            if(_currentTargetPos == _startPos){
+                _currentTargetPos = _endPos; 
+                return; 
+            }
+
+            _currentTargetPos = _startPos; 
+        }
+    }
 
     protected IEnumerator Attack () {
         _canAttack = false; 
