@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (!isDead)
         {
+            AudioManager.Instance.play("Death");
             isDead = true;
             transform.tag = INTERACTABLE_TAG;
             if (leaveCorpse)
@@ -86,6 +87,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(!value) Camera.main.GetComponent<CameraController>().cameraTarget = null;
         GetComponentInChildren<Animator>().enabled = value;
+        GetComponentInChildren<Interact>().DestroyTexts();
         GetComponent<Collider>().material = GetComponentInChildren<GroundDetector>().noFrictionMat;
         var scripts = gameObject.GetComponents<MonoBehaviour>().ToList();
         var scriptsChildren = gameObject.GetComponentsInChildren<MonoBehaviour>().ToList();

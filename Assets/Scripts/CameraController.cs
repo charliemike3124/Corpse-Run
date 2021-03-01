@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     {
         if (cameraTarget != null)
         {
-            var targetPos = new Vector3(cameraTarget.position.x + _cameraOffset.x,transform.position.y, cameraTarget.position.z + _cameraOffset.z);
+            var targetPos = new Vector3(cameraTarget.position.x + _cameraOffset.x, cameraTarget.position.y + _cameraOffset.y, cameraTarget.position.z + _cameraOffset.z);
             transform.position = Vector3.Lerp(transform.position, targetPos, cameraFollowSpeed);  
 
             transform.eulerAngles = new Vector3(cameraTarget.eulerAngles.x, transform.eulerAngles.y, cameraTarget.eulerAngles.z);

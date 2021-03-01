@@ -107,4 +107,10 @@ public class Interact : MonoBehaviour
             Destroy(interactText);
         }
     }
+
+    public void DestroyTexts()
+    {
+        if(interactText) Destroy(interactText);
+        if(toggleText) Destroy(toggleText);
+    }
 }

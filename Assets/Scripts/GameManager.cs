@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool interaction;
     public bool toggle;
     public bool dash;
+    public bool checkpoint;
 
     [Header("UI Elements")]
     public GameObject _finishAlert;
