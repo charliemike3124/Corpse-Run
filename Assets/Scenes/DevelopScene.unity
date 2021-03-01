@@ -489,34 +489,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9999999, z: 0.9999999}
   m_Center: {x: 0, y: 0.49999958, z: 0.00000047683716}
---- !u!1 &1063930546 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1159736915188513364, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-  m_PrefabInstance: {fileID: 3561228641690618176}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1063930547 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1969170594377736430, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-  m_PrefabInstance: {fileID: 3561228641690618176}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1063930550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063930546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac94e917588087a4c9440445ac7d1c64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoopTime: 2
-  rot:
-  - 0
-  - 360
-  - 0
-  rotationAxis: 000100
 --- !u!1001 &1128021385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -867,6 +839,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b819c4f6254447f4ea7ca692ced1c8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 0}
+  player: {fileID: 0}
+  interaction: 0
+  toggle: 0
+  dash: 0
 --- !u!4 &1668113692
 Transform:
   m_ObjectHideFlags: 0
@@ -1087,26 +1064,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 799612015937608577, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0bdc796954d71454b9be78d56f9631b8, type: 2}
-    - target: {fileID: 799612015937608577, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: a8bf722a5c783be4da21fcf3c8d2f528, type: 2}
-    - target: {fileID: 799612015937608577, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a8bf722a5c783be4da21fcf3c8d2f528, type: 2}
-    - target: {fileID: 3561228640262193890, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-      propertyPath: _meshTransform
-      value: 
-      objectReference: {fileID: 1063930547}
-    - target: {fileID: 3561228640262193890, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-      propertyPath: _targetPlayer
-      value: 
-      objectReference: {fileID: 1063930547}
     - target: {fileID: 3561228641102374637, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
       propertyPath: m_Name
       value: OvniHolder
@@ -1154,10 +1111,6 @@ PrefabInstance:
     - target: {fileID: 3561228641102374638, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561228641583070861, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}
-      propertyPath: m_Name
-      value: Mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d4a169a41ca4e049ab485f6bc286caa, type: 3}

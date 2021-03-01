@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening; 
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     public bool dash;
 
     [Header("UI Elements")]
-    public GameObject _finishAlert; 
+    public GameObject _finishAlert;
 
     private void Awake()
     {
@@ -29,10 +30,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void EndGame(){
-        GameObject m_finishAlert = Instantiate(_finishAlert, new Vector3(0,250,0), Quaternion.identity) as GameObject;
+        GameObject m_finishAlert = Instantiate(_finishAlert);
+        m_finishAlert.GetComponent<Image>().DOFade(0.8f, 1.5f);
+        m_finishAlert.transform.Find("Game Over Text").DOScale(1.1f, 1f).OnComplete(() =>
+        {
+            m_finishAlert.GetComponentInChildren<GameObject>().transform.DOScale(1f, 0.2f);
+        });
         m_finishAlert.transform.SetParent (GameObject.Find ("Canvas").transform, false);
-        m_finishAlert.transform.localPosition = new Vector3 (0, 250, 0);
-        m_finishAlert.transform.DOLocalMove(new Vector3(0,0,0), 1.0f); 
+        RestartSceneAfterSeconds(3);
     }
 
     private void Update()

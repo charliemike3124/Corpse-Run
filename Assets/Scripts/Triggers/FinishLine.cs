@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class FinishLine : TriggerEvent {
 
-    [SerializeField] private float _wait; 
-
-    public override void OnTriggerEvent (GameObject triggerer, GameObject triggeredObject) {
-        Invoke("Finish", _wait); 
+    public override void OnTriggerEvent (GameObject triggerer, GameObject triggeredObject)
+    {
+        // instantiate PE
+        GameManager.Instance.EndGame();
     }
-
-    private void Finish(){
-        GameManager.Instance.EndGame ();
-    }   
 }
 
 
