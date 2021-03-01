@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(restartTime);
-            GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, GameManager.Instance._chekpointPos, Quaternion.identity);
             GameManager.Instance.player = newPlayer.GetComponent<PlayerManager>();
             newPlayer.GetComponent<Rigidbody>().constraints
                 = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
