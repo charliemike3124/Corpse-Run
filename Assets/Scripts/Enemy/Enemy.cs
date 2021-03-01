@@ -25,8 +25,8 @@ public abstract class Enemy : MonoBehaviour {
     [Space (5)]
 
     [Header ("Dependencies")]
-    [SerializeField] protected Transform _targetPlayer;
     [SerializeField] protected GameObject _bullet;
+    public Transform _targetPlayer;
 
     public abstract void Move(); 
 

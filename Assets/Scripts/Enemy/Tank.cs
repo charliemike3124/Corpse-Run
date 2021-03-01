@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening; 
 
-public class Land : Enemy {
+public class Tank : Enemy {
     [Header ("characteristic")]
     [SerializeField] private float _triggerDistanceFromPlayer;
     private Vector3 noRot = new Vector3 (0, 0, 0);
@@ -46,7 +46,9 @@ public class Land : Enemy {
         }
     }
     private bool CheckDistance () {
-        return Vector3.Distance (this.transform.position, _targetPlayer.transform.position) < _triggerDistanceFromPlayer;
+        if(_targetPlayer != null)
+            return Vector3.Distance (this.transform.position, _targetPlayer.transform.position) < _triggerDistanceFromPlayer;
+        return false; 
     }
 
     private void CheckRotation () {
