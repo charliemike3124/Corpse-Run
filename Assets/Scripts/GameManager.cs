@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject _finishAlert;
 
+    [Header("Checkpoint")]
+    public Vector3 _chekpointPos = new Vector3(0,0,0); 
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
