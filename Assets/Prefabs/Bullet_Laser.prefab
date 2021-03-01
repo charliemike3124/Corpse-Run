@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4935367374333432323}
   - component: {fileID: 571743198219595439}
   - component: {fileID: 3606751760831921885}
+  - component: {fileID: 3092630772270277230}
   m_Layer: 9
   m_Name: Bullet_Laser
   m_TagString: Enemy
@@ -227,3 +228,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3092630772270277230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386528823331489222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb84d207d679a7489e7823d77e8e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 6

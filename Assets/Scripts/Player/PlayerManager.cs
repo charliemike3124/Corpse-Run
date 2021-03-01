@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
                 Rigidbody rb = GetComponent<Rigidbody>();
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
                 rb.AddForce(transform.right * -deathKnockbackForce);
+                
             }
 
             yield return new WaitForSeconds(restartTime);
@@ -85,6 +86,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(!value) Camera.main.GetComponent<CameraController>().cameraTarget = null;
         GetComponentInChildren<Animator>().enabled = value;
+        GetComponent<Collider>().material = GetComponentInChildren<GroundDetector>().noFrictionMat;
         var scripts = gameObject.GetComponents<MonoBehaviour>().ToList();
         var scriptsChildren = gameObject.GetComponentsInChildren<MonoBehaviour>().ToList();
         scripts.AddRange(scriptsChildren);

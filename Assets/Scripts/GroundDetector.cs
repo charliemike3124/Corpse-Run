@@ -19,7 +19,11 @@ public class GroundDetector : MonoBehaviour
     void OnTriggerStay(Collider c)
     {
         isGrounded = true;
-        PM.GetComponent<Collider>().material = originalMat;
+
+        if (!GetComponentInParent<PlayerManager>().isDead)
+        {
+            PM.GetComponent<Collider>().material = originalMat;
+        }
     }
 
     void OnTriggerExit(Collider c)

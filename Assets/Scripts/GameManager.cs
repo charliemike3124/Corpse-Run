@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         player = FindObjectOfType<PlayerManager>();
         if (Instance != null)
         {
