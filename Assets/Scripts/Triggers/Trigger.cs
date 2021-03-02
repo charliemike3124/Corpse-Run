@@ -11,7 +11,7 @@ public class Trigger : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        if(triggerType == TriggerType.Trigger && triggerTimes > 0 && !isTriggered)
+        if(triggerType == TriggerType.Trigger && triggerTimes > 0 && !isTriggered && c.tag != "Interact Collider")
         {
             isTriggered = true;
             triggerTimes -= 1;

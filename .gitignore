@@ -75,3 +75,4 @@ Assets/PolybrushData*
 # Asset Bundles folder and .bin file
 /Assets/StreamingAssets
 *.bin
+*.zip

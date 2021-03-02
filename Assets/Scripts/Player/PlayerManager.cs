@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public bool isBeingHeld;
 
     [Header("Death")]
     public string INTERACTABLE_TAG = "Interactable";

@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerType: 0
   trigger: {fileID: 354452007889686974}
-  triggerTimes: 100
+  triggerTimes: 999999
 --- !u!114 &354452007889686974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7048197406142035714}
   m_Layer: 0
-  m_Name: TankHolder 1
+  m_Name: TankHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

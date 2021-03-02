@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
         player = FindObjectOfType<PlayerManager>();
         if (Instance != null)
         {
@@ -56,6 +55,11 @@ public class GameManager : MonoBehaviour
     public void RestartSceneAfterSeconds(float time)
     {
         Invoke("LoadActiveScene", time);
+    }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 
     private void LoadActiveScene()

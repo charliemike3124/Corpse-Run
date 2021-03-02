@@ -45,6 +45,7 @@ public class Interact : MonoBehaviour
                 holdedObject.transform.SetParent(null);
                 holdedObject.GetComponent<Rigidbody>().isKinematic = false;
                 holdedObject.GetComponent<Rigidbody>().AddForce(holdedObject.transform.right * -dropForce);
+                holdedObject.GetComponent<PlayerManager>().isBeingHeld = false;
                 holdedObject.layer = originalLayer;
             }
             if (player.GetComponent<InputManager>().toggleHold)
@@ -76,6 +77,7 @@ public class Interact : MonoBehaviour
             originalLayer = holdedObject.layer;
             holdedObject.gameObject.layer = holdLayer;
             holdedObject.GetComponent<Rigidbody>().isKinematic = true;
+            holdedObject.GetComponent<PlayerManager>().isBeingHeld = true;
             holdedObject.transform.SetParent(grabPoint);
             isHoldingObject = true;
             anim.SetBool("HoldingUp", true);
@@ -89,7 +91,8 @@ public class Interact : MonoBehaviour
  
     void OnTriggerEnter(Collider c)
     {
-        if (c.tag == player.INTERACTABLE_TAG)
+        var beingHeld = c.GetComponent<PlayerManager>()?.isBeingHeld ?? false;
+        if (c.tag == player.INTERACTABLE_TAG && !beingHeld)
         {
             interactableObject = c.gameObject;
             if(!GameManager.Instance.interaction)
