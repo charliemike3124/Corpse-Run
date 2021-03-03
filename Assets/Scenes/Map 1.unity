@@ -293,6 +293,7 @@ MonoBehaviour:
   triggerType: 0
   trigger: {fileID: 84332644}
   triggerTimes: 1
+  canCorpseTrigger: 1
 --- !u!65 &30822890
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class Interact : MonoBehaviour
                 anim.SetBool("HoldingFront", false);
                 isHoldingObject = false;
                 holdedObject.transform.SetParent(null);
-                holdedObject.GetComponent<Rigidbody>().isKinematic = false;
+                holdedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
                 holdedObject.GetComponent<Rigidbody>().AddForce(holdedObject.transform.right * -dropForce);
                 holdedObject.GetComponent<PlayerManager>().isBeingHeld = false;
                 holdedObject.layer = originalLayer;
@@ -76,7 +76,7 @@ public class Interact : MonoBehaviour
             holdedObject.transform.position = grabPoint.position;
             originalLayer = holdedObject.layer;
             holdedObject.gameObject.layer = holdLayer;
-            holdedObject.GetComponent<Rigidbody>().isKinematic = true;
+            holdedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             holdedObject.GetComponent<PlayerManager>().isBeingHeld = true;
             holdedObject.transform.SetParent(grabPoint);
             isHoldingObject = true;

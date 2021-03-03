@@ -18,7 +18,7 @@ public class AnimationEvents : MonoBehaviour
     {
         if (GD.isGrounded)
         {
-            Instantiate(effect, walkingSpawningPoint.position, effect.transform.rotation);
+            Instantiate(effect, walkingSpawningPoint.position, transform.rotation);
             AudioManager.Instance.play("Step");
         }
     }

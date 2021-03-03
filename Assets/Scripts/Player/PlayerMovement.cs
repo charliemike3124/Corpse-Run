@@ -39,7 +39,9 @@ public class PlayerMovement : MonoBehaviour
         run();
 
         float velocityX = Mathf.Clamp(RB.velocity.x, -maxVelocityX, maxVelocityX);
+
         RB.velocity = new Vector2(velocityX, RB.velocity.y);
+        
     }
     void FixedUpdate()
     {
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         { 
             anim.SetBool("Walking", false);
             RB.velocity = new Vector3(0, RB.velocity.y, 0);
-            tweens.Add(mesh.DORotate(new Vector3(0, mesh.eulerAngles.y, 0), 0.2f));
+            tweens.Add(mesh.DORotate(new Vector3(0, mesh.eulerAngles.y, 0), 0.2f).SetAutoKill());
         }
     }
 
@@ -59,11 +61,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("Walking", true);
         if(speed > 0)
         {
-            tweens.Add(mesh.DORotate(new Vector3(0, 0, 10), 0.2f));
+            tweens.Add(mesh.DORotate(new Vector3(0, 0, 10), 0.2f).SetAutoKill());
         }
         else
         {
-            tweens.Add(mesh.DORotate(new Vector3(0, 180, 10), 0.2f));
+            tweens.Add(mesh.DORotate(new Vector3(0, 180, 10), 0.2f).SetAutoKill());
         }
     
     }
@@ -80,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IM.run)
         {
-            anim.SetFloat("WalkingMulti", 1.25f);
+            anim.SetFloat("WalkingMulti", 1.35f);
             maxVelocityX = runSpeed;
             runLinesEffect.SetActive(true);
         }

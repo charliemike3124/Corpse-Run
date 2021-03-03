@@ -20,9 +20,9 @@ public class Tank : Enemy {
     void Update () {
         if (CheckDistance ()) {
             if (this.transform.position.x - _targetPlayer.transform.position.x < 0) {
-                _parentTransform.transform.DORotate(yesRot, _rotationAnimSmoothness); 
+                _parentTransform.transform.DORotate(yesRot, _rotationAnimSmoothness).SetAutoKill(); 
             } else {
-                _parentTransform.transform.DORotate(noRot, _rotationAnimSmoothness); 
+                _parentTransform.transform.DORotate(noRot, _rotationAnimSmoothness).SetAutoKill(); 
             }
             if (_canAttack)
                 StartCoroutine (Attack ());
@@ -53,11 +53,9 @@ public class Tank : Enemy {
 
     private void CheckRotation () {
         if (_currentTargetPos == _startPos) {
-            _parentTransform.transform.DORotate(noRot, _rotationAnimSmoothness); 
-            //_parentTransform.eulerAngles = noRot;
+            _parentTransform.transform.DORotate(noRot, _rotationAnimSmoothness).SetAutoKill(); 
         } else {
-            _parentTransform.transform.DORotate(yesRot, _rotationAnimSmoothness); 
-            //_parentTransform.eulerAngles = yesRot;
+            _parentTransform.transform.DORotate(yesRot, _rotationAnimSmoothness).SetAutoKill(); 
         }
     }
 }

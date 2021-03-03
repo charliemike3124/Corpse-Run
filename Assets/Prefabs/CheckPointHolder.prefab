@@ -61,6 +61,7 @@ MonoBehaviour:
   triggerType: 0
   trigger: {fileID: 684410381571772587}
   triggerTimes: 1
+  canCorpseTrigger: 0
 --- !u!114 &684410381571772587
 MonoBehaviour:
   m_ObjectHideFlags: 0

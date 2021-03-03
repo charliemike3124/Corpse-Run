@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 49473758}
   - component: {fileID: 49473760}
   - component: {fileID: 49473759}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Interact Collider
   m_TagString: Interact Collider
   m_Icon: {fileID: 0}
