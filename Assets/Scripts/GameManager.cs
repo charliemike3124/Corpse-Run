@@ -25,12 +25,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         player = FindObjectOfType<PlayerManager>();
-        if (Instance != null)
-        {
-            Debug.LogWarning("more than one instance of GameManager found.");
-            return;
-        }
-        Instance = this;
+        Instance = Instance != null ? null : this;
     }
 
     public void EndGame(){

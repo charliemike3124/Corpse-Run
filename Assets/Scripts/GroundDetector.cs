@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
 public class GroundDetector : MonoBehaviour
 {
+    public string[] jumpableTags;
     public bool isGrounded;
     public PhysicMaterial noFrictionMat;
 
@@ -18,18 +18,24 @@ public class GroundDetector : MonoBehaviour
 
     void OnTriggerStay(Collider c)
     {
-        isGrounded = true;
-
-        if (!GetComponentInParent<PlayerManager>().isDead)
+        if(jumpableTags.Contains(c.tag))
         {
-            PM.GetComponent<Collider>().material = originalMat;
+            isGrounded = true;
+
+            if (!GetComponentInParent<PlayerManager>().isDead)
+            {
+                PM.GetComponent<Collider>().material = originalMat;
+            }
         }
     }
 
     void OnTriggerExit(Collider c)
     {
-        isGrounded = false;
-        PM.GetComponent<Collider>().material = noFrictionMat;
+        if (jumpableTags.Contains(c.tag))
+        {
+            isGrounded = false;
+            PM.GetComponent<Collider>().material = noFrictionMat;
+        }
 
-    }
+    }    
 }

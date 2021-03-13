@@ -80,19 +80,22 @@ public class PlayerMovement : MonoBehaviour
 
     void run()
     {
+        var main = runLinesEffect.GetComponent<ParticleSystem>().main;
         if (IM.run)
         {
             anim.SetFloat("WalkingMulti", 1.35f);
             maxVelocityX = runSpeed;
             runLinesEffect.SetActive(true);
+            main.loop = true;
         }
         if(IM.runKeyUp)
         {
             anim.SetFloat("WalkingMulti", 1f);
             maxVelocityX = regularSpeed;
+            main.loop = false;
             SWGUtilities.Instance.ExecuteAfterTime(() => {
                 runLinesEffect.SetActive(false);
-                }, 1.4f);
+            }, 1f);
         }
     }
 }

@@ -36,12 +36,8 @@ public class PlayerManager : MonoBehaviour
                     t.Pause();
                 }
                 enableScriptsAndComponents(false);
-
                 yield return new WaitForEndOfFrame();
-                Rigidbody rb = GetComponent<Rigidbody>();
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
-                rb.AddForce(transform.right * -deathKnockbackForce);
-                
+                addDeathPhysics();
             }
 
             yield return new WaitForSeconds(restartTime);
@@ -97,5 +93,13 @@ public class PlayerManager : MonoBehaviour
         {
             script.enabled = value;
         }
+    }
+
+    void addDeathPhysics()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
+        rb.drag = 1;
+        rb.AddForce(transform.right * -deathKnockbackForce);
     }
 }

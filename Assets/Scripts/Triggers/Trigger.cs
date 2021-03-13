@@ -6,6 +6,7 @@ public class Trigger : MonoBehaviour
     public TriggerType triggerType;
     public TriggerEvent trigger;
     public int triggerTimes;
+    public bool inifniteTriggerTimes;
     public bool canCorpseTrigger = true;
 
     private bool isTriggered;
@@ -13,7 +14,7 @@ public class Trigger : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        if(triggerType == TriggerType.Trigger && triggerTimes > 0 && !isTriggered && triggerConditions(c))
+        if(triggerType == TriggerType.Trigger && triggerConditions(c))
         {
             isTriggered = true;
             triggerTimes -= 1;
@@ -26,12 +27,13 @@ public class Trigger : MonoBehaviour
         if (isTriggered)
         {
             isTriggered = false;
+            trigger.OnTriggerExitEvent(c.gameObject, gameObject);
         }
     }
 
     void OnCollisionEnter(Collision c)
     {
-        if (triggerType == TriggerType.Collision && triggerTimes > 0 && !isTriggered && triggerConditions(c)) 
+        if (triggerType == TriggerType.Collision && triggerConditions(c)) 
         {
             isTriggered = true;
             triggerTimes -= 1;
@@ -44,25 +46,30 @@ public class Trigger : MonoBehaviour
         if (isTriggered)
         {
             isTriggered = false;
+            trigger.OnTriggerExitEvent(c.gameObject, gameObject);
         }
     }
 
+    #region Helpers
     bool triggerConditions(Collision c )
     {
-        bool condition = false;
-        if(c.gameObject.layer != 1)
-        {
-            condition = true;
-        }
+        bool condition = true;
+        if (!canCorpseTrigger) condition = c.transform.GetComponent<PlayerManager>().isDead ? false : true;
+        if (isTriggered) condition = false;
+        if (triggerTimes == 0 && !inifniteTriggerTimes) condition = false;
+        if (c.gameObject.layer == 1) condition = false;
+
         return condition;
     }
     bool triggerConditions(Collider c)
     {
         bool condition = true;
-
-        if (!canCorpseTrigger)  condition = c.GetComponent<PlayerManager>().isDead? false : true;
-        if (c.gameObject.layer == 1)    condition = false;
+        if (!canCorpseTrigger) condition = c.GetComponent<PlayerManager>()?.isDead ?? false ? false : true;
+        if (isTriggered) condition = false;
+        if (triggerTimes == 0 && !inifniteTriggerTimes) condition = false;
+        if (c.gameObject.layer == 1) condition = false;
 
         return condition;
     }
+    #endregion
 }

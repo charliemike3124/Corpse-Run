@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class TriggerEvent : MonoBehaviour
 {
     public abstract void OnTriggerEvent(GameObject triggerer, GameObject triggeredObject);
+    public virtual void OnTriggerExitEvent(GameObject triggerer, GameObject triggeredObject) { }
 }
