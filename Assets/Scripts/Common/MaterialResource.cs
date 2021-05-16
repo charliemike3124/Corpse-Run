@@ -8,4 +8,5 @@ public class MaterialResource : ScriptableObject
     [Header("Materials")]
     public List<PhysicMaterial> PhysicMaterials;
     public List<Material> Materials;
+
 }

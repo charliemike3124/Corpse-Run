@@ -4,9 +4,11 @@ using UnityEngine;
 public class TweenRotate : MonoBehaviour
 {
     
-    public float LoopTime;
+    public float loopTime;
+    public LoopType loopType;
     public float[] rot = new float[3];
     public bool[] rotationAxis = new bool[3];
+    public Ease tweenEase;
      
     void Start()
     {
@@ -16,9 +18,9 @@ public class TweenRotate : MonoBehaviour
 
         Vector3 rotation = new Vector3(rot[0], rot[1], rot[2]);
 
-        transform.DOLocalRotate(rotation, LoopTime, RotateMode.FastBeyond360)           
-            .SetEase(Ease.Linear)
-            .SetLoops(-1)
+        transform.DOLocalRotate(rotation, loopTime, RotateMode.FastBeyond360)
+            .SetEase(tweenEase)
+            .SetLoops(-1, loopType)
             .SetAutoKill(true);
     } 
 }

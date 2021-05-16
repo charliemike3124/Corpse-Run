@@ -76,3 +76,4 @@ Assets/PolybrushData*
 /Assets/StreamingAssets
 *.bin
 *.zip
+/Assets/Plugins
